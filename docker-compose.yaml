@@ -1,0 +1,19 @@
+---
+version: '3'
+
+services:
+  misensors:
+    build: .
+    container_name: misensors
+    restart: unless-stopped
+    # This is set to host for simpler deployment, secure it by moving into
+    #  a network it can use to communicate with MQTT
+    network_mode: host
+    volumes:
+      # Create ./config and copy config.ini.dist into it to configure
+      - "${PWD}/config:/config"
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+# vim:set ts=2 et ai: #
+

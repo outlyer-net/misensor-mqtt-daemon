@@ -1,6 +1,7 @@
 # Project specific
 
 config.ini
+/config
 
 
 # Created by https://www.gitignore.io/api/python
